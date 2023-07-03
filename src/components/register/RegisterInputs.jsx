@@ -42,7 +42,7 @@ export const RegisterInputs = () => {
 
               {/* ===== phone/email , username inputs ===== */}
               <div className="d-flex ">
-                {formik.values.auth_mode == "phone" ? (
+                {formik.values.auth_mode === "phone" ? (
                   <FormControl
                     formik={formik}
                     control="input"
@@ -77,7 +77,8 @@ export const RegisterInputs = () => {
                   formik={formik}
                   type="text"
                   control="date"
-                  name="Date_of_birth"
+                  // name="Date_of_birth"
+                  name=" birthday_date"
                   placeholder="Date of birth"
                 />
               </div>

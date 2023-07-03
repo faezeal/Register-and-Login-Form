@@ -139,5 +139,7 @@ body {
 }
 
 .selectBox {
-  height: 40px;
+  height: 35px;
+  border: none;
+  background-color: #E9ECEF;
 }

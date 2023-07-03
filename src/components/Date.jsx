@@ -34,11 +34,11 @@ const Date = ({ formik, name, placeholder, type }) => {
     setYear(now.jYear());
     setMonth(now.jMonth());
     setDay(now.jDayOfYear());
-    // console.log(now.jYear() + "/" + now.jMonth() + "/" + now.jDate());
   }, []);
 
   const handleShowDateConfig = () => {
-    //baresi kone dar che sali hastim va state years ro meqdar dehi kone
+    //baresi kone dar che sali hastim
+    //va state years ro meqdar dehi kone
 
     let arrOfYears = [];
     for (let index = parseInt(year) - 100; index <= parseInt(year); index++) {
@@ -49,14 +49,22 @@ const Date = ({ formik, name, placeholder, type }) => {
   };
 
   const handleSetDateOfBirth = (e) => {
-    e.stopPropagation(); //ba tag valedet kari nadashte bash
+    // e.stopPropagation(); //ba tag valedet kari nadashte bash
+    formik.setValues({
+      ...formik.values,
+      [name]: `${year}/${month}/${day}`,
+    });
     setShowConfig(false);
-   
   };
+
   return (
     <div className="position-relative">
       <label htmlFor=""></label>
-      <div onClick={handleShowDateConfig}>
+      <div
+        onClick={() => {
+          handleShowDateConfig();
+        }}
+      >
         <FastField
           name={name}
           type={type}
@@ -67,7 +75,13 @@ const Date = ({ formik, name, placeholder, type }) => {
       </div>
       {showConfig ? (
         <div className="dateDiv rounded-pill row d-flex justify-content-center align-items-center">
-          <div className="col-1 text-success" onClick={handleSetDateOfBirth}>
+          {/*icon 👍*/}
+          <div
+            className="col-1 text-success"
+            onClick={() => {
+              handleSetDateOfBirth();
+            }}
+          >
             <i className="fa-solid fa-thumbs-up pointer"></i>
           </div>
           <div className="col-3 p-0 m-0 ">
@@ -90,7 +104,7 @@ const Date = ({ formik, name, placeholder, type }) => {
               className="selectBox form-select"
             >
               {months.map((m) => (
-                <option value={m.value} key={m.value}>
+                <option value={m.id} key={m.id}>
                   {m.value}
                 </option>
               ))}
