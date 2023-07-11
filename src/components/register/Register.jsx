@@ -7,6 +7,7 @@ export const Register = () => {
     <div className="">
       <div className="customForm  ">
         <div className="w-100 text-center">
+          {/* register icon 🙋‍♀️🙋‍♂️*/}
           <img
             src="../assets/images/user-image.png"
             alt="user"

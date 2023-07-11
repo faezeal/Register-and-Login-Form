@@ -22,7 +22,7 @@ const months = [
   { id: 11, value: "Bahman" },
   { id: 12, value: "Esfand" },
 ];
-const Date = ({ formik, name, placeholder, type }) => {
+export const Date = ({ formik, name, placeholder, type }) => {
   const [day, setDay] = useState();
   const [month, setMonth] = useState();
   const [year, setYear] = useState();
@@ -126,8 +126,9 @@ const Date = ({ formik, name, placeholder, type }) => {
         </div>
       ) : null}
 
-      <div>
+      <div className="testErrorMessage1">
         <ErrorMessage
+          className="testErrorMessage2"
           name={name}
           render={(d) => <small className="smallFont">{d}</small>}
         />
@@ -135,5 +136,3 @@ const Date = ({ formik, name, placeholder, type }) => {
     </div>
   );
 };
-
-export default Date;

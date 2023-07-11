@@ -19,7 +19,7 @@ export const RegisterInputs = () => {
         // console.log(formik.values.auth_mode);
         return (
           <Form>
-            <div className="">
+            <div className="inputsOfRegister">
               {/* ====== first name , last name inputs ===== */}
               <div className="d-flex ">
                 <FormControl
@@ -71,18 +71,6 @@ export const RegisterInputs = () => {
                 />
               </div>
 
-              {/* ============ date input ============== */}
-              <div>
-                <FormControl
-                  formik={formik}
-                  type="text"
-                  control="date"
-                  // name="Date_of_birth"
-                  name=" birthday_date"
-                  placeholder="Date of birth"
-                />
-              </div>
-
               {/* ===== password , confirmation inputs ======= */}
               <div className="d-flex ">
                 <FormControl
@@ -100,6 +88,29 @@ export const RegisterInputs = () => {
                   type="password"
                   name="confirmPassword"
                   placeholder="confirm password"
+                  inputStyle="registerInputStyle"
+                />
+              </div>
+
+              {/* ============ date of birth input ============== */}
+              <div>
+                <FormControl
+                  formik={formik}
+                  type="text"
+                  control="date"
+                  name="dateOfBirth"
+                  placeholder="Date of birth"
+                />
+              </div>
+
+              {/*================= Choose a file ====================*/}
+              <div>
+                <FormControl
+                  formik={formik}
+                  type="file"
+                  control="file"
+                  name="choose_file"
+                  placeholder="Choose a file"
                   inputStyle="registerInputStyle"
                 />
               </div>

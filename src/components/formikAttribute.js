@@ -11,7 +11,8 @@ export const initialValues = {
   confirmPassword: "",
   auth_mode: "email",
   booleanTest: true,
-  birthday_date: "",
+  dateOfBirth: "",
+  choose_file: "",
 };
 
 export const validationSchema = Yup.object({
@@ -49,7 +50,21 @@ export const validationSchema = Yup.object({
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("It is required"),
 
-    birthday_date :Yup.string().required("It is required")
+  dateOfBirth: Yup.string().required("It is required"),
+
+  choose_file: Yup.mixed()
+    .required("It is required")
+    .test(
+      "file size",
+      "maximum size:100KB",
+      (value) => value && value.size <= 200 * 1024
+    )
+    .test(
+      "file format",
+      "format: jpg/png",
+      (value) =>
+        value && (value.type === "image/png" || value.type === "image/jpeg")
+    ),
 });
 
 export const onSubmit = (value) => {

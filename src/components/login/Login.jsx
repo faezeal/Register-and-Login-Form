@@ -5,7 +5,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 export const Login = () => {
   return (
     <div className="p-2">
-      <div className="customForm d-flex flex-column justify-content-center align-items-center ">
+      <div className="customForm_login d-flex flex-column justify-content-center align-items-center ">
         <div className="w-100 text-center">
           <img
             src="../assets/images/login.png"
